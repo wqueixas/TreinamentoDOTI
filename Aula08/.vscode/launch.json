@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Spring01Application<spring01>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "br.queixas.spring01.Spring01Application",
+            "projectName": "spring01",
+            "args": ""
+        }
+    ]
+}

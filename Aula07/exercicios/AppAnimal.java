@@ -11,9 +11,13 @@ public class AppAnimal {
         cadastro.incluiAnimal("Mel", "Golden", "Caramelo", 2015, "Renata", "27331762");
     
 
+        System.out.println("Cadastro completo");
         System.out.println(cadastro.imprime());
+        System.out.println("Proprietarios de SRD");
         System.out.println(cadastro.buscaDonosRaca("SRD"));
+        System.out.println("Proprietarios de Goldens");
         System.out.println(cadastro.buscaDonosRaca("Golden"));
+        System.out.println("Proprietarios de Bulldogs");
         System.out.println(cadastro.buscaDonosRaca("Bulldog"));
 
         
