@@ -9,8 +9,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity //será armazenado em banco de dados
 @Table(name="tbanuncio")
+@Getter @Setter
 public class Anuncio {
     @Id //chave primaria no BD
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto incremento
@@ -25,33 +31,7 @@ public class Anuncio {
 
     @ManyToOne
     @JoinColumn(name="id_user")
+    @JsonIgnoreProperties("anuncios")
     private User user;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
-
-
-
     
 }

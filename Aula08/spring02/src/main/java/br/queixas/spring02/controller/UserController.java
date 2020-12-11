@@ -2,6 +2,7 @@ package br.queixas.spring02.controller;
 
 import java.util.List;
 
+import org.hibernate.boot.model.source.spi.SubclassEntitySource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -39,6 +40,24 @@ public class UserController {
         } 
         return ResponseEntity.notFound().build(); // http response 404
     }
+    
+    @GetMapping("/id2/{id}") // entre {} fica o nome da variavel
+    public ResponseEntity<User> buscarPersonalizado(@PathVariable int id) { //metodo vai fazer uma query montada maualmente em UserDAO
+        User usuario=dao.buscaPorId(id);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } 
+        return ResponseEntity.notFound().build(); // http response 404
+    }
+
+/*     @GetMapping("/id3/{id}") // entre {} fica o nome da variavel
+    public ResponseEntity<Object> buscarUserPersonalizado(@PathVariable int id) { //metodo vai fazer uma query montada maualmente em UserDAO
+        Object usuario=(Object)dao.buscaPorIdPersonalizado(id);
+        if (usuario != null) {
+            return ResponseEntity.ok(usuario);
+        } 
+        return ResponseEntity.notFound().build(); // http response 404
+    } */
 
     @PostMapping("/new")
     public ResponseEntity<User> newUser(@RequestBody User newuser) {
@@ -65,19 +84,22 @@ public class UserController {
             UserDTO userdto = new UserDTO(usuario);
             return ResponseEntity.ok(userdto);
         } 
-        return ResponseEntity.notFound().build(); // http response 404
+        return ResponseEntity.status(403).build(); // http response 404
     }
 
     @PostMapping("/login")
     public ResponseEntity<UserDTO> login(@RequestBody User user) {
+        System.out.println(user.getName());
         User userFinded = dao.findByEmailOrCpf(user.getEmail(), user.getCpf());
+        System.out.println(userFinded.getName());
         if(userFinded != null) {
             if(user.getPassword().equals(userFinded.getPassword())) {
-                UserDTO userdto = new UserDTO(user);
+                UserDTO userdto = new UserDTO(userFinded);
                 return ResponseEntity.ok(userdto);
             }
             //return ResponseEntity.status(401).build(); -- mensagens de erro customizadas, podem dar margem a re engenharia
         }
-        return ResponseEntity.status(403).build();
+        return ResponseEntity.notFound().build();
     }
+
 }

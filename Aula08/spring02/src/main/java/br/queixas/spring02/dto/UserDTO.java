@@ -4,22 +4,22 @@ import br.queixas.spring02.model.User;
 
 //Data Transfer Object
 public class UserDTO {
-    private String nome;
+    private String name;
     private String email;
     private String cpf;
 
     public UserDTO(User usuario) {
-        this.nome = usuario.getName();
+        this.name = usuario.getName();
         this.email = usuario.getEmail();
         this.cpf = usuario.getCpf();
     }
 
     public String getName() {
-        return nome;
+        return name;
     }
 
     public void setName(String name) {
-        this.nome = name;
+        this.name = name;
     }
 
     public String getEmail() {

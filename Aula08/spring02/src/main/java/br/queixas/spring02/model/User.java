@@ -10,8 +10,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity //será armazenado em banco de dados
 @Table(name="tbuser")
+@Getter @Setter @NoArgsConstructor
 public class User {
     @Id //chave primaria no BD
     @GeneratedValue(strategy = GenerationType.IDENTITY) //auto incremento
@@ -31,55 +38,17 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
     private List<Anuncio> anuncios;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
+    public User(String name, String email) {
+        this.name = name;
         this.email = email;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
+    
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Anuncio> getAnuncios() {
-        return anuncios;
-    }
-
-    public void setAnuncios(List<Anuncio> anuncios) {
-        this.anuncios = anuncios;
-    }
+ 
 
 
 
