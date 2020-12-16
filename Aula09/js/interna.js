@@ -1,3 +1,5 @@
+const URL=${JAVA_URL}
+
 function validaLogin() {
     let evidencia=localStorage.getItem("userlogged");
     if(!evidencia) {
@@ -8,7 +10,8 @@ function validaLogin() {
 
     document.getElementById("dadosUser").innerHTML = `<b>${user.name}</b> (${user.email})`;
 
-    buscarUsuarios();
+    //buscarUsuarios();
+    buscarAgentes();
 
 }
 
@@ -20,7 +23,7 @@ function logout() {
 function buscarAnuncios() {
     let user=document.getElementById("selUser");
     let id=user[user.selectedIndex].value;
-    fetch("http://localhost:8080/user/id/"+id)
+    fetch(URL+"/user/id/"+id)
         .then( res => trataResposta(res));
 }
 
@@ -28,16 +31,16 @@ function trataResposta(res) {
     if(res.status==200) {
         res.json().then(res => exibirAnuncios(res));
     } else {
-        document.getElementById("listaAnuncios").innerHTML="<HR>Usuário não encontrado"
+        document.getElementById("listaAnuncios").innerHTML="<BR>Usuário não encontrado"
     }
 }
 
 function exibirAnuncios(dados) {
     let item=dados.anuncios;
-    let tabela="<br><table width=100% border=thin><tr><th>ID</th><th>Descrição</th><th>Valor (R$)</th></tr>";
+    let tabela="<br><table align=center border=1 width=50%><tr><th>ID</th><th>Descrição</th><th>Valor (R$)</th></tr>";
 
     if(item.length == 0) {
-        document.getElementById("listaAnuncios").innerHTML="<HR>Sem anúncios para esse usuário";
+        document.getElementById("listaAnuncios").innerHTML="<BR>Sem anúncios para esse usuário";
     } else {
         for(let i=0; i < item.length; i++) {
             tabela=tabela+`
@@ -55,11 +58,10 @@ function exibirAnuncios(dados) {
 }
 
 function buscarUsuarios(){
-    fetch("http://localhost:8080/user/all")
+    fetch(URL+"/user/all")
     .then( res => res.json()
     .then( res => exibirUsuarios(res)));
 }
-
 function exibirUsuarios(lista){
 
     let opcoes='';
@@ -69,3 +71,20 @@ function exibirUsuarios(lista){
 
     document.getElementById("selUser").innerHTML=opcoes;
 }
+
+function buscarAgentes() {
+    fetch(URL+"/agente/listaPorVol")
+    .then( res => res.json() )
+    .then( res => exibirAgentes(res) );
+}
+function exibirAgentes(lista){
+
+    let opcoes='';
+        for(let i=0; i < lista.length; i++) {
+            opcoes=opcoes+` <option value=${lista[i].id_agente}>${lista[i].volume_transacional} - ${lista[i].nome_agente}</option>`;
+        }
+
+    document.getElementById("selUser").innerHTML=opcoes;
+}
+
+

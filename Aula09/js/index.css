@@ -1,0 +1,47 @@
+body{
+	background-image: url('bg.jpg');
+	background-repeat: no-repeat;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+
+
+}
+
+#formcpf{
+
+	margin-top: 5%;
+	padding: 5%;
+
+	background-color: white;
+	border-radius: 15px;
+}
+
+#resultado{
+	background-color: white;
+	border-radius: 15px;
+}
+
+#txtCpf{
+	font-size: 2rem;
+}
+
+#button1{
+	font-size: 2rem;
+	margin-top: 5%;
+	align-content: center;
+	border-radius: 15px;
+}
+
+#msgResult{
+	background-color: white;
+	border-radius: 15px;
+	margin-top: 5%;
+}
+.valido{
+	color: green;
+}
+.invalido{
+	font-size: 1rem;
+	color: red;
+}

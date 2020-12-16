@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bem vindo</title>
-    <script src="/js/index.js"></script>
+    <link rel="stylesheet" href="/js/index.css">
+    <script type="text/javascript" src="/js/index.js"></script>
+
 </head>
 <body>
-
-    <input type="text" name="" id="inputUser" maxlength="50" value="armando.lero@escolinha.com.br">
-    <div id=resultado></div>
-<br><br>
-    <input type="password" name="" id="inputPassword" maxlength="8">
-<br><br>
-
-
-    <button onclick="enviar(event)">Enviar</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-12" id="formcpf">
+                Usuário: <br><input type="text" class="form-control" id="inputUser" maxlength="50" value="armando.lero@escolinha.com.br">
+                <br><br>
+                Senha: <br><input type="password" class="form-control" id="inputPassword">
+                <br><br>
+                <button id="button1" class="btn btn-primary" onclick="(event);">Enviar</button>
+            </div>
+            <div class="col-12 text-left" id="resultado">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

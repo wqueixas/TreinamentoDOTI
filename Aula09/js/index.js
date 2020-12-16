@@ -1,10 +1,11 @@
+const URL=${JAVA_URL}
 function enviar(event) {
     event.preventDefault();
     let user=document.getElementById("inputUser").value;
     let password=document.getElementById("inputPassword").value;
 
     console.log(user + ": "+password);
-    //alert("Olá! "+login )
+    alert("Olá! "+user )
     //document.getElementById("resultado").innerHTML=senha;
 
     let loginMsg = {
@@ -19,16 +20,16 @@ function enviar(event) {
         headers:{'Content-type':'application/json'}
     }
 
-    fetch("http://localhost:8080/user/login", msg)
+    fetch(URL+"/user/login", msg)
         .then( res => mostraRetorno(res))
 }
 
 function mostraRetorno(retorno) {
     if(retorno.status == 200) {
-        document.getElementById("resultado").innerHTML="Login ok";
+        document.getElementById("resultado").innerHTML="<h5 class=\"valido\"> Login OK </h5>";
         retorno.json().then( res => avanca(res) );
     } else {
-        document.getElementById("resultado").innerHTML="Falha no login";
+        document.getElementById("resultado").innerHTML="<h5 class=\"invalido\"> Login Invalido </h5>";
     }
 }
 

@@ -32,8 +32,7 @@ public class AnuncioController {
     @PostMapping("/like")
     public ResponseEntity<List<Anuncio>> buscaLike(@RequestBody Anuncio anuncio) {
         List<Anuncio> procuraDescricao=dao.findByDescricaoLike(anuncio.getDescricao());
-
-        
+   
         if (procuraDescricao != null) {
             return ResponseEntity.ok(procuraDescricao);
         } 
