@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="/css/itau.css">
+</head>
+
+<body>
+    <!-- <h1>Bem vindo!</h1> -->
+    <table border=0 width=100% cellspacing=5 cellpadding=10 class="menu">
+<tr>
+    <td align="left"><a href="/html/index.html"><img src="/imagem/logo.png" width="=250" height="100"></a></td>
+    <td align="right">quem somos</td>
+    <td align="right">cursos online</td>
+    <td align="right">gama experience</td>
+    <td align="right">para empresas</td>
+    <td align="right">contato</td>
+    <td align="right">conteudo</td>
+</tr>
+</table>
+<br>
+<form id="form-contato" method=post>
+    <fieldset>
+        <legend>Preencha os campos abaixo para se candidatar a um curso</legend>
+    <label>Nome:</label> <input type="text" id="nome" class="campo_nome" required>
+
+    <br><br><label>Email: </label><input type="email" id="email" class="campo_email" required>
+
+    <br><br><label>Telefone: </label><input type="tel" id="tel" required>
+
+    <br><br><Label>Senha:</Label><input type="password" id="senha" required>
+
+    <br><br><label>Genero:</label>
+        <input type="radio" name="genero" value="fem">Feminino
+        <input type="radio" name="genero" value="Masc">Masculino
+        <input type="radio" name="genero" value="outro">Outro
+
+    <br><br><Label>Data:</Label><input type="date" id="data" required>
+
+    <br><br><label>Escolha o curso:</label>
+        <select name=curso id=curso required>
+            <option value=""></option>
+            <option value="css">CSS</option>
+            <option value="html">HTML</option>
+            <option value="js">JS</option>
+            <option value="xml">XML</option>
+        </select>
+
+        <br><br><label>Escolha o periodo do curso:</label>
+        <input type="checkbox" name="periodo" value="1">Manhã
+        <input type="checkbox" name="periodo" value="2">Tarde
+        <input type="checkbox" name="periodo" value="3">Noite
+
+        <br><br><label>Mensagem:</label><br><textarea name="msg" cols=70 rows=4 maxlength="35"></textarea>
+
+        <br><br><label>Anexar documento::</label><br><input type="file" id="arquivo">
+
+    <br><br><input type="submit" value="Enviar"> <input type="reset" value="Limpar">
+</fieldset>
+</form>
+    </body>
+    </html>

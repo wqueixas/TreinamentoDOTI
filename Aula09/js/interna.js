@@ -1,4 +1,5 @@
-const URL=${JAVA_URL}
+//const URL="${JAVA_URL}";
+const URL="https://pj-java-li.herokuapp.com";
 
 function validaLogin() {
     let evidencia=localStorage.getItem("userlogged");
@@ -73,6 +74,7 @@ function exibirUsuarios(lista){
 }
 
 function buscarAgentes() {
+    console.log(URL+"/agente/listaPorVol")
     fetch(URL+"/agente/listaPorVol")
     .then( res => res.json() )
     .then( res => exibirAgentes(res) );

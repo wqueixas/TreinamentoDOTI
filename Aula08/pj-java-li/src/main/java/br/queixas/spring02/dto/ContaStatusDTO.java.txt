@@ -1,0 +1,18 @@
+package br.queixas.spring02.dto;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+public class ContaStatusDTO {
+    private String agente;
+    private int status;
+    private long count;
+
+    public ContaStatusDTO(String agente, int status, long count) {
+        this.agente = agente;
+        this.status = status;
+        this.count = count;
+    }
+    
+}

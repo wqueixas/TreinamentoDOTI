@@ -1,0 +1,74 @@
+.container{
+border: 3px solid brown;
+width: 500px;
+}
+.div1 {
+    background-color: yellow;
+    width: 500px;
+}
+.div2 {
+    background-color: rgb(89, 89, 233);
+    width: 500px;
+}
+.div3 {
+    background-color: rgb(105, 204, 80);
+    width: 500px;
+}
+.div4 {
+    background-color: rgb(197, 65, 65);
+    width: 500px;
+}
+
+
+p{
+    color: blue;
+    font-size: 14px;
+}
+body{
+    background-color: beige;
+}
+.menu {
+    color: darkgreen;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+label{
+    color: darkgreen;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+legend{
+    color: rgb(11, 68, 11);
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+}
+#form-contato{
+    background-color: bisque;
+    color: rgb(59, 111, 207);
+    font-size: 9px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+}
+
+input {
+        background-color: gray;
+        color: red;
+        font-size: 9px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bold;
+    }
+}
+
+.campo_nome{
+    position: absolute;
+    left: 190px;
+}
+.campo_email{
+    position: absolute;
+    left: 190px;
+    width: 280px;
+}

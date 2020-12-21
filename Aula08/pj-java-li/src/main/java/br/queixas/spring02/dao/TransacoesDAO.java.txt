@@ -1,0 +1,30 @@
+package br.queixas.spring02.dao;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import br.queixas.spring02.dto.ContaStatusDTO;
+import br.queixas.spring02.model.Transacoes;
+
+@Repository
+public interface TransacoesDAO extends CrudRepository<Transacoes, Integer> {
+    /*
+     * @Query("SELECT t.status, COUNT(t.id_agente) FROM mtb310_transaction AS t WHERE WHERE t.id_agente = ?1 GROUP BY t.status ORDER BY t.status"
+     * ) List<Object[]> countTotalTransacoesByAgente(int idAgente);
+     */
+
+    @Query("SELECT new br.queixas.spring02.model.ContaStatus(t.agente.nomeAgente, t.status, COUNT(t.status)) "+
+        "FROM Transacoes AS t "+
+        "WHERE t.agente.idAgente = ?1 "+
+        "GROUP BY t.agente.nomeAgente, t.status "+
+        "ORDER By status")
+    List<ContaStatusDTO> countStatusByAgent(int idAgente);
+
+/*     @Query("select t.status, count(*) as quantidade " + "from aula08.mtb310_transaction t "
+            + "where t.ag_financeiro=10 group by t.status " + "order by t.status")
+    List<ContaStatus> findContagemStatus(); */
+
+}

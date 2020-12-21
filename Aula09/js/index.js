@@ -1,12 +1,10 @@
-const URL=${JAVA_URL}
+const URL="https://pj-java-li.herokuapp.com";
 function enviar(event) {
     event.preventDefault();
     let user=document.getElementById("inputUser").value;
     let password=document.getElementById("inputPassword").value;
 
-    console.log(user + ": "+password);
-    alert("Olá! "+user )
-    //document.getElementById("resultado").innerHTML=senha;
+    //console.log(user + ": "+password);
 
     let loginMsg = {
         email: user,
@@ -37,5 +35,4 @@ function avanca(user) {
     console.log(user);
     localStorage.setItem("userlogged", JSON.stringify(user));
     window.location="interna.html"
-
 }
